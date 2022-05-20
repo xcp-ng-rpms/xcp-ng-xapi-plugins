@@ -33,8 +33,8 @@ install SOURCES/etc/xapi.d/plugins/xcpngutils/*.py %{buildroot}/etc/xapi.d/plugi
 
 %changelog
 * Fri May 20 2022 Benjamin Reis <benjamin.reis@vates.fr> - 1.7.2-1
-- Do not escape disabled repos in yum command
-- Fix typo in variable name
+- Really disable unwanted repos when running yum update
+- Fix exception handling when a command fails
 
 * Thu Feb 10 2022 Ronan Abhamon <ronan.abhamon@vates.fr> - 1.7.1-1
 - Fix invalid `run_command` implementation
