@@ -1,6 +1,6 @@
 Summary: XAPI additional plugins for XCP-ng
 Name: xcp-ng-xapi-plugins
-Version: 1.8.0
+Version: 1.10.0
 Release: 1%{?dist}
 URL: https://github.com/xcp-ng/xcp-ng-xapi-plugins
 Source0: https://github.com/xcp-ng/xcp-ng-xapi-plugins/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -20,6 +20,8 @@ Collection of XAPI plugins specific to XCP-ng.
 %autosetup -p1
 
 %install
+# smartctl 7 is not available on XCP-ng 8.2.
+rm SOURCES/etc/xapi.d/plugins/smartctl.py
 install -d %{buildroot}/etc/xapi.d/plugins/
 install -d %{buildroot}/etc/xapi.d/plugins/xcpngutils/
 install -d %{buildroot}/var/lib/xcp-ng-xapi-plugins/
@@ -32,6 +34,10 @@ install SOURCES/etc/xapi.d/plugins/xcpngutils/*.py %{buildroot}/etc/xapi.d/plugi
 %dir /var/lib/xcp-ng-xapi-plugins
 
 %changelog
+* Fri Feb 26 2024 Ronan Abhamon <ronan.abhamon@vates.fr> - 1.10.0-1
+- Add check_installed function in updater.py
+- Exclude smartctl plugin, only available on XCP-ng 8.3
+
 * Tue Jun 06 2023 Ronan Abhamon <ronan.abhamon@vates.fr> - 1.8.0-1
 - Add LVM plugin to list and create PVs, VGs and LVs
 - RAID plugin: handle gracefully when no RAID is present
