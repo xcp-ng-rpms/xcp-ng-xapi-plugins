@@ -1,6 +1,6 @@
 Summary: XAPI additional plugins for XCP-ng
 Name: xcp-ng-xapi-plugins
-Version: 1.10.1
+Version: 1.12.0
 Release: 1%{?dist}
 URL: https://github.com/xcp-ng/xcp-ng-xapi-plugins
 Source0: https://github.com/xcp-ng/xcp-ng-xapi-plugins/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -34,6 +34,12 @@ install SOURCES/etc/xapi.d/plugins/xcpngutils/*.py %{buildroot}/etc/xapi.d/plugi
 %dir /var/lib/xcp-ng-xapi-plugins
 
 %changelog
+* Tue Feb 26 2025 Ronan Abhamon <ronan.abhamon@vates.tech> - 1.12.0-1
+- Add new service plugin
+- Add a new ipmitool plugin to get information from ipmitool
+  - It returns information about sensors
+  - It also returns ipmi lan information
+
 * Thu Aug 08 2024 Benjamin Reis <benjamin.reis@vates.fr> - 1.10.1-1
 - Enhance error report when a command ran on a host fails
 
