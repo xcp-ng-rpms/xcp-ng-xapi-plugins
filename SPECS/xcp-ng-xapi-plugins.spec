@@ -6,11 +6,15 @@ URL: https://github.com/xcp-ng/xcp-ng-xapi-plugins
 Source0: https://github.com/xcp-ng/xcp-ng-xapi-plugins/archive/v%{version}/%{name}-%{version}.tar.gz
 License: AGPL-3.0-only
 
+# py3
 Patch01:     0001-Use-list-comprehensions-rather-than-filter-and-map.patch
 Patch02:     0002-run_command-use-text-mode.patch
 Patch03:     0003-updater.py-switch-to-python3.patch
 Patch04:     0004-Remove-shebang-from-lib.patch
 Patch05:     0005-Switch-all-plugins-to-python3-for-consistency.patch
+# dnf
+Patch06:     0006-updater-let-build_repo_list-return-repo-objects-not-.patch
+Patch07:     0007-WIP-Q-D-port-from-yum-to-dnf.patch
 
 BuildArch: noarch
 
@@ -40,6 +44,7 @@ install SOURCES/etc/xapi.d/plugins/xcpngutils/*.py %{buildroot}/etc/xapi.d/plugi
 %changelog
 * Thu Nov 12 2026 Yann Dirson <yann.dirson@vates.tech> - 1.18.0-1.0.ydi.1
 - Include patches for python3 support
+- Include patches for DNF support
 
 * Tue Aug 11 2026 Sebastien Rodot <sebastien.rodot@vates.tech> - 1.18.0-1
 - service.py plugin: restrict which services the plugin is allowed to stop/start
