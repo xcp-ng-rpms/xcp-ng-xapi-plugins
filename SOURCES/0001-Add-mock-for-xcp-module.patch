@@ -1,0 +1,47 @@
+From 9810a7c3e1ee30015e03838a939c8913ed2be23f Mon Sep 17 00:00:00 2001
+From: Tu Dinh <ngoc-tu.dinh@vates.tech>
+Date: Fri, 6 Mar 2026 14:47:23 +0100
+Subject: [PATCH] Add mock for xcp module
+
+Signed-off-by: Tu Dinh <ngoc-tu.dinh@vates.tech>
+---
+ tests/conftest.py            | 4 ++++
+ tests/mocked_xcp/__init__.py | 0
+ tests/mocked_xcp/environ.py  | 2 ++
+ 3 files changed, 6 insertions(+)
+ create mode 100644 tests/mocked_xcp/__init__.py
+ create mode 100644 tests/mocked_xcp/environ.py
+
+diff --git a/tests/conftest.py b/tests/conftest.py
+index c1454b3..43d3181 100644
+--- a/tests/conftest.py
++++ b/tests/conftest.py
+@@ -4,6 +4,7 @@ import sys
+ 
+ import mocked_configparser
+ import mocked_xen_api_plugin
++import mocked_xcp
+ import mocked_yum
+ 
+ def pytest_configure():
+@@ -18,6 +19,9 @@ sys.modules['ConfigParser'] = mocked_configparser
+ # Mock yum globally, module is not necessarily present on the system.
+ sys.modules['yum'] = mocked_yum
+ 
++# Not installed.
++sys.modules['xcp'] = mocked_xcp
++
+ sys.path.append(str(pathlib.Path(__file__).parent.resolve()) + '/../SOURCES/etc/xapi.d/plugins')
+ 
+ pytest_plugins = ("pyfakefs",)
+diff --git a/tests/mocked_xcp/__init__.py b/tests/mocked_xcp/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/tests/mocked_xcp/environ.py b/tests/mocked_xcp/environ.py
+new file mode 100644
+index 0000000..1ac7c1b
+--- /dev/null
++++ b/tests/mocked_xcp/environ.py
+@@ -0,0 +1,2 @@
++def readInventory():
++    return {"INSTALLATION_UUID": "9724a1cf-0673-4f28-a25a-fb2aa723f2f4"}

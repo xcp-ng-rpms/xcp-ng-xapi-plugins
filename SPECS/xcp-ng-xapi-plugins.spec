@@ -6,6 +6,10 @@ URL: https://github.com/xcp-ng/xcp-ng-xapi-plugins
 Source0: https://github.com/xcp-ng/xcp-ng-xapi-plugins/archive/v%{version}/%{name}-%{version}.tar.gz
 License: AGPL-3.0-only
 
+Patch0: 0001-Add-mock-for-xcp-module.patch
+Patch1: 0002-Add-xenstore-library-and-mock.patch
+Patch2: 0003-Add-VM-disk-space-plugin.patch
+
 BuildArch: noarch
 
 Obsoletes: xcp-ng-updater <= 1.3.0
