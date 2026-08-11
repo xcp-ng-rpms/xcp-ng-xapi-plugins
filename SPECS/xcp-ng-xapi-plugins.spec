@@ -1,7 +1,7 @@
 Summary: XAPI additional plugins for XCP-ng
 Name: xcp-ng-xapi-plugins
 Version: 1.18.0
-Release: 1%{?dist}
+Release: 1~releasev1x18x0.1%{?dist}
 URL: https://github.com/xcp-ng/xcp-ng-xapi-plugins
 Source0: https://github.com/xcp-ng/xcp-ng-xapi-plugins/archive/v%{version}/%{name}-%{version}.tar.gz
 License: AGPL-3.0-only
