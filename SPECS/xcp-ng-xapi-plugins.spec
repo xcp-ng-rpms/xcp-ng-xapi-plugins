@@ -1,6 +1,6 @@
 Summary: XAPI additional plugins for XCP-ng
 Name: xcp-ng-xapi-plugins
-Version: 1.17.0
+Version: 1.18.0
 Release: 1%{?dist}
 URL: https://github.com/xcp-ng/xcp-ng-xapi-plugins
 Source0: https://github.com/xcp-ng/xcp-ng-xapi-plugins/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -32,6 +32,13 @@ install SOURCES/etc/xapi.d/plugins/xcpngutils/*.py %{buildroot}/etc/xapi.d/plugi
 %dir /var/lib/xcp-ng-xapi-plugins
 
 %changelog
+* Tue Aug 11 2026 Sebastien Rodot <sebastien.rodot@vates.tech> - 1.18.0-1
+- Import xcp-ng-xapi-plugins v1.18.0
+- *** Upstream changelog ***
+  - feat(service.py):Restrict callable systemd units by @p0sql in xcp-ng/xcp-ng-xapi-plugins#69
+  - meta: add storage team as code owner of service.py by @semarie in xcp-ng/xcp-ng-xapi-plugins#70
+  - lsblk.py: add devid in output by @Ythogtha in xcp-ng/xcp-ng-xapi-plugins#60
+
 * Thu Jul 16 2026 Sebastien Rodot <sebastien.rodot@vates.tech> - 1.17.0-1
 - sdncontroller.py: fixes for hosts using VLANs (XCPNG-3551)
 
