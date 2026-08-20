@@ -1,6 +1,6 @@
 Summary: XAPI additional plugins for XCP-ng
 Name: xcp-ng-xapi-plugins
-Version: 1.17.0
+Version: 1.18.0
 Release: 1%{?dist}
 URL: https://github.com/xcp-ng/xcp-ng-xapi-plugins
 Source0: https://github.com/xcp-ng/xcp-ng-xapi-plugins/archive/v%{version}/%{name}-%{version}.tar.gz
@@ -32,6 +32,10 @@ install SOURCES/etc/xapi.d/plugins/xcpngutils/*.py %{buildroot}/etc/xapi.d/plugi
 %dir /var/lib/xcp-ng-xapi-plugins
 
 %changelog
+* Tue Aug 11 2026 Sebastien Rodot <sebastien.rodot@vates.tech> - 1.18.0-1
+- service.py plugin: restrict which services the plugin is allowed to stop/start
+- lsblk.py: add devid information in the output
+
 * Thu Jul 16 2026 Sebastien Rodot <sebastien.rodot@vates.tech> - 1.17.0-1
 - sdncontroller.py: fixes for hosts using VLANs (XCPNG-3551)
 
